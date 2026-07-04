@@ -27,11 +27,11 @@ export const PACKAGES = [
     delivery: "3–5 Business Days",
     revisions: "1 round",
     bullets: [
-      "1–2 page responsive landing page (Next.js + Tailwind)",
-      "Local SEO — meta tags, OG, sitemap & Core Web Vitals pass",
-      "Contact form → client email or Google Sheets routing",
-      "Click-to-WhatsApp floating widget with custom pre-fill",
-      "Google Analytics or Plausible setup & verification",
+      "1–2 page responsive landing page",
+      "Local SEO & Core Web Vitals pass",
+      "Contact form routing",
+      "Click-to-WhatsApp widget",
+      "Google Analytics setup",
     ],
     outcomes: [
       {
@@ -66,11 +66,11 @@ export const PACKAGES = [
     delivery: "7–10 Business Days",
     revisions: "2 rounds",
     bullets: [
-      "Everything in Micro Presence",
-      "3–5 pages + headless CMS (Sanity) — edit without touching code",
-      "Schema markup (LocalBusiness/Service) + Google Search Console",
-      "Google Business Profile audit & optimization guidance",
-      "Instant WhatsApp lead alert — new form submission → your phone",
+      "Everything in Micro",
+      "3–5 pages + Headless CMS",
+      "Schema markup & Search Console",
+      "Business Profile audit",
+      "Instant WhatsApp alerts",
     ],
     outcomes: [
       {
@@ -105,11 +105,11 @@ export const PACKAGES = [
     delivery: "3–4 Weeks",
     revisions: "2 structural rounds",
     bullets: [
-      "Everything in Business Core's design quality",
-      "Full-stack: Next.js + Supabase (PostgreSQL, Auth, Storage)",
-      "Email/magic-link login + role-based access (admin vs. customer)",
-      "Admin dashboard: view, filter & manage all records",
-      "Installable PWA — home screen, offline access & push notifications",
+      "Everything in Core",
+      "Next.js + Supabase backend",
+      "Secure user authentication",
+      "Admin dashboard interface",
+      "Installable PWA functionality",
     ],
     outcomes: [
       {
@@ -413,7 +413,7 @@ const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.09 }}
-                className={`min-w-[85vw] snap-center sm:min-w-0 flex-shrink-0 relative flex flex-col rounded-xl border p-6 sm:p-7 transition-all duration-300 bg-card ${
+                className={`min-w-[85vw] snap-center sm:min-w-0 flex-shrink-0 relative flex flex-col rounded-xl border p-5 sm:p-6 transition-all duration-300 bg-card ${
                   pkg.popular
                     ? "border-primary/50 shadow-2xl shadow-primary/5 md:-translate-y-2"
                     : "border-white/5 hover:border-white/10 hover:shadow-lg"
@@ -428,7 +428,7 @@ const PricingSection = () => {
                 )}
 
                 {/* Header */}
-                <div className="mb-5 flex items-start gap-3">
+                <div className="mb-4 flex items-start gap-3">
                   <div
                     className={`p-2 rounded-lg border flex-shrink-0 ${
                       pkg.popular
@@ -448,12 +448,12 @@ const PricingSection = () => {
                   </div>
                 </div>
 
-                <p className="text-xs font-medium text-muted-foreground mb-5 min-h-[32px] leading-relaxed">
+                <p className="text-xs font-medium text-muted-foreground mb-4 min-h-[32px] leading-relaxed">
                   {pkg.tagline}
                 </p>
 
                 {/* Price */}
-                <div className="mb-5 pb-5 border-b border-white/5">
+                <div className="mb-4 pb-4 border-b border-white/5">
                   <AnimatePresence mode="wait">
                     <motion.p
                       key={currency}
@@ -473,7 +473,7 @@ const PricingSection = () => {
                 </div>
 
                 {/* Features */}
-                <ul className="flex-1 space-y-3 mb-5">
+                <ul className="flex-1 space-y-2.5 mb-4">
                   {pkg.bullets.map((b, bi) => (
                     <li
                       key={bi}
@@ -491,7 +491,7 @@ const PricingSection = () => {
                 </ul>
 
                 {/* Best for */}
-                <p className="text-[10px] text-muted-foreground mb-5 leading-relaxed">
+                <p className="text-[10px] text-muted-foreground mb-4 leading-relaxed">
                   <span className="font-bold text-foreground/40 uppercase tracking-widest">
                     Best for:{" "}
                   </span>
@@ -519,7 +519,7 @@ const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-5 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-5 sm:p-7"
+            className="mt-5 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-4 sm:p-5"
           >
             <div className="flex flex-col sm:flex-row sm:items-start gap-5">
               {/* Icon + name */}

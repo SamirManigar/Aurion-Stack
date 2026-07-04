@@ -36,53 +36,53 @@ const TIER_DETAILS = [
         icon: Globe,
         label: "Pages & Structure",
         items: [
-          "1–2 pages: single scrolling page or Home + Contact split",
-          "Sections: Hero, About, Services/Offerings, Testimonials, Contact",
-          "Fully responsive — mobile-first, tested from 375 px to 1920 px",
+          "1–2 pages (Home & Contact)",
+          "Sections: Hero, About, Services, Testimonials, Contact",
+          "Fully responsive (mobile-first design)",
         ],
       },
       {
         icon: Search,
         label: "SEO & Performance",
         items: [
-          "Meta titles, descriptions & Open Graph tags for social sharing",
-          "sitemap.xml and robots.txt auto-generated",
-          "Image compression + lazy loading on all assets",
-          "Core Web Vitals pass — LCP, CLS & INP optimised",
-          "Alt-text on all images for accessibility & SEO",
+          "Meta tags & Open Graph for social sharing",
+          "Auto-generated sitemap.xml & robots.txt",
+          "Image compression & lazy loading",
+          "Core Web Vitals pass (LCP, CLS, INP)",
+          "Alt-text for accessibility & SEO",
         ],
       },
       {
         icon: MessageSquare,
         label: "Contact & Lead Capture",
         items: [
-          "Contact form routed to client email or Google Sheets (client's choice)",
-          "Basic spam protection via honeypot field",
+          "Contact form routed to Email or Google Sheets",
+          "Basic spam protection",
         ],
       },
       {
         icon: Smartphone,
         label: "WhatsApp Automation",
         items: [
-          "Floating click-to-WhatsApp widget on every page",
-          "Pre-filled custom message (e.g. 'Hi, I'm interested in booking...')",
-          "Deep-links directly to the business's WhatsApp — no app install required for the client",
+          "Floating click-to-WhatsApp widget",
+          "Pre-filled custom messages",
+          "Direct deep-links (no app install required)",
         ],
       },
       {
         icon: BarChart3,
         label: "Analytics",
         items: [
-          "Google Analytics or Plausible setup, connected & verified before handover",
+          "Google Analytics or Plausible setup",
         ],
       },
       {
         icon: ShieldCheck,
         label: "Scope Limits",
         items: [
-          "1 revision round — content/design tweaks within original scope only",
+          "1 revision round (within scope)",
           "Delivery: 3–5 business days",
-          "Excludes: domain registration, hosting costs, ongoing content updates",
+          "Excludes: domain, hosting, ongoing updates",
         ],
       },
     ],
@@ -95,16 +95,16 @@ const TIER_DETAILS = [
         label: "Pages & Structure",
         items: [
           "Everything in Tier 1",
-          "3–5 pages: Home, About, Services/Listings, Gallery (if relevant), Contact",
-          "Dynamic listing templates — service cards, property listings, menu items — editable by client via CMS",
+          "3–5 pages (Home, About, Services, Gallery, Contact)",
+          "Dynamic listing templates (editable via CMS)",
         ],
       },
       {
         icon: Database,
         label: "CMS Integration",
         items: [
-          "Sanity headless CMS (or equivalent) — client edits content without touching code",
-          "Structured content types matched to the client's actual business (services, listings, team, etc.)",
+          "Sanity headless CMS setup",
+          "Custom structured content types",
         ],
       },
       {
@@ -112,26 +112,26 @@ const TIER_DETAILS = [
         label: "SEO — Expanded",
         items: [
           "Everything in Tier 1",
-          "Schema markup — LocalBusiness or Service schema matched to industry",
-          "Google Search Console setup + sitemap submission",
+          "Schema markup (LocalBusiness/Service)",
+          "Google Search Console integration",
         ],
       },
       {
         icon: Building2,
         label: "Google Business Profile",
         items: [
-          "NAP (Name / Address / Phone) consistency audit",
-          "Category & photo optimisation guidance",
-          "Review-request message template for the client to send customers",
+          "NAP consistency audit",
+          "Profile optimisation guidance",
+          "Review-request message templates",
         ],
       },
       {
         icon: MessageSquare,
         label: "WhatsApp Automation — Upgraded",
         items: [
-          "One-way lead alert: webhook fires the instant a form is submitted",
-          "Owner receives a WhatsApp message with the lead's details immediately",
-          "No dashboard login required — it just arrives on WhatsApp",
+          "Instant form submission webhooks",
+          "Immediate WhatsApp lead alerts",
+          "Direct-to-phone delivery (no login needed)",
         ],
       },
       {
@@ -140,7 +140,7 @@ const TIER_DETAILS = [
         items: [
           "2 revision rounds",
           "Delivery: 7–10 business days",
-          "Excludes: domain, hosting, WhatsApp Business API conversation fees",
+          "Excludes: domain, hosting, 3rd-party API fees",
         ],
       },
     ],
@@ -149,49 +149,57 @@ const TIER_DETAILS = [
     tier: 3,
     groups: [
       {
+        icon: Globe,
+        label: "Pages & Structure",
+        items: [
+          "Everything in Tier 2's design quality",
+          "Unlimited dynamic pages driven by the database",
+        ],
+      },
+      {
         icon: ShieldCheck,
         label: "Authentication & Access",
         items: [
-          "Email/password or magic-link login",
-          "Role-based access control — admin vs. customer views",
-          "Password reset flow included",
+          "Email, password, or magic-link login",
+          "Role-based access (admin vs. customer)",
+          "Password reset flow",
         ],
       },
       {
         icon: Database,
         label: "Backend & Data",
         items: [
-          "Structured PostgreSQL schema designed around the client's actual workflow",
-          "Next.js / React frontend + Supabase (PostgreSQL, Auth, Storage)",
-          "Admin dashboard: view/manage all records with filtering & search",
-          "Customer portal: logged-in users see their own bookings / orders / history",
+          "Custom PostgreSQL database schema",
+          "Next.js + Supabase full-stack architecture",
+          "Admin dashboard with filtering & search",
+          "Customer portal for bookings & history",
         ],
       },
       {
         icon: Smartphone,
         label: "Installable PWA Layer",
         items: [
-          "Web app manifest — installs to home screen on Android & iOS without an app store",
-          "Service worker for offline access to key pages (relevant for low-connectivity areas)",
-          "Web push notifications — no Play Store or App Store dependency",
-          "App-like navigation — no browser chrome once installed",
+          "Installs to home screen (no app store needed)",
+          "Offline access via service workers",
+          "Web push notifications",
+          "App-like fullscreen navigation",
         ],
       },
       {
         icon: MessageSquare,
         label: "WhatsApp Automation",
         items: [
-          "Optional AI WhatsApp Assistant add-on (see below) — not included by default",
+          "Optional AI Assistant add-on available",
         ],
       },
       {
         icon: ShieldCheck,
         label: "Scope Limits",
         items: [
-          "2 structural revision rounds — schema or flow changes, not full rebuilds",
+          "2 structural revision rounds",
           "Delivery: 3–4 weeks",
-          "Payment gateway (Razorpay / Stripe) scoped separately if needed — confirm before assuming it's included",
-          "Excludes: domain, hosting, database hosting beyond Supabase free tier limits",
+          "Payment gateway integration (scoped separately)",
+          "Excludes: domain, hosting beyond free tiers",
         ],
       },
     ],
@@ -306,7 +314,7 @@ const PricingDashboard = () => {
             <span className="text-muted-foreground italic">Full specification.</span>
           </h1>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto sm:text-lg text-balance">
-            Clear, strategic packages for the Indian market and international clients. Everything below is development and engineering only — final pricing may vary based on custom requirements and integrations.
+            Clear, strategic packages tailored to your business. Final pricing may vary based on custom scope and integrations.
           </p>
         </motion.div>
 
@@ -795,7 +803,7 @@ const PricingDashboard = () => {
               </a>
               <a
                 id="pricing-cta-whatsapp"
-                href="https://wa.me/919322720861"
+                href="https://wa.me/919322974288"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-md border border-white/10 bg-transparent px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"

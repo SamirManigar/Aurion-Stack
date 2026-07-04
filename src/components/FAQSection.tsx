@@ -101,7 +101,7 @@ const FAQSection = () => {
         >
           Still have questions?{" "}
           <a
-            href="https://wa.me/919322720861"
+            href="https://wa.me/919322974288"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-primary underline-offset-4 hover:underline"

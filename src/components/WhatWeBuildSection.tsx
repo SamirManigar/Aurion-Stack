@@ -74,7 +74,7 @@ const WhatWeBuildSection = () => {
         </motion.div>
 
         {/* 2-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px border border-white/5 rounded-xl overflow-hidden bg-white/5">
+        <div className="grid grid-cols-2 gap-px border border-white/5 rounded-xl overflow-hidden bg-white/5">
           {builds.map((item, i) => (
             <motion.div
               key={item.label}
@@ -82,7 +82,7 @@ const WhatWeBuildSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.06 }}
-              className="group flex items-start gap-4 bg-background px-6 py-5 hover:bg-white/[0.03] transition-colors duration-300"
+              className="group flex flex-col sm:flex-row items-start gap-3 sm:gap-4 bg-background px-4 py-4 sm:px-6 sm:py-5 hover:bg-white/[0.03] transition-colors duration-300"
             >
               <div className="flex-shrink-0 mt-0.5 h-8 w-8 rounded-lg border border-white/5 bg-muted/50 flex items-center justify-center text-muted-foreground group-hover:text-primary group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-300">
                 <item.icon size={15} />

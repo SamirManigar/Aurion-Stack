@@ -287,7 +287,7 @@ const ServicesDetailSection = () => {
               Send an Email
             </a>
             <a
-              href="https://wa.me/919322720861"
+              href="https://wa.me/919322974288"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full sm:w-auto items-center justify-center rounded-md border border-border bg-transparent px-8 py-3.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
