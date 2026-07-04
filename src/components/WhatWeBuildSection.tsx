@@ -51,7 +51,7 @@ const builds = [
 
 const WhatWeBuildSection = () => {
   return (
-    <section className="bg-background py-16 sm:py-24 px-4 border-t border-white/5">
+    <section className="bg-background py-16 sm:py-24 px-2 sm:px-6 border-t border-white/5">
       <div className="container mx-auto max-w-4xl">
 
         {/* Header */}
