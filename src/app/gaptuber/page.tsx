@@ -3,22 +3,22 @@ import GapTuberClient from "./GapTuberClient";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "GapTuber — AI YouTube Content Gap Finder for Creators",
-  description: "GapTuber finds high-demand, low-competition YouTube video ideas your competitors haven't made yet. Grow your channel faster with data-driven content gap reports.",
-  keywords: "YouTube content gap tool, AI video idea generator, find trending YouTube topics, YouTube keyword research, grow YouTube channel, GapTuber",
+  title: "GapTuber — YouTube Video Idea Generator AI & Content Gap Finder",
+  description: "Stop guessing what to film. GapTuber is an AI YouTube video idea generator that finds high-demand, low-competition content gaps your competitors missed.",
+  keywords: "YouTube content gap tool, AI video idea generator, find trending YouTube topics, YouTube keyword research, grow YouTube channel, GapTuber, youtube video idea generator ai, youtube video ideas ai",
   alternates: { canonical: "https://aurionstack.dev/gaptuber" },
   openGraph: {
     type: "website",
     url: "https://aurionstack.dev/gaptuber",
-    title: "GapTuber — Find YouTube Video Ideas Your Competitors Missed",
-    description: "Stop guessing what to film next. GapTuber's AI surfaces high-demand, low-competition video gaps before your competitors find them.",
+    title: "GapTuber — YouTube Video Idea Generator AI & Content Gap Finder",
+    description: "Stop guessing what to film. GapTuber is an AI YouTube video idea generator that finds high-demand, low-competition content gaps your competitors missed.",
     siteName: "Aurion Stack",
     images: [{ url: "/aurionstack-logo.webp", width: 512, height: 512, alt: "GapTuber by Aurion Stack" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GapTuber — Find YouTube Video Ideas Your Competitors Missed",
-    description: "Stop guessing what to film next. GapTuber's AI surfaces high-demand, low-competition video gaps weekly.",
+    title: "GapTuber — YouTube Video Idea Generator AI & Content Gap Finder",
+    description: "Stop guessing what to film. GapTuber is an AI YouTube video idea generator that finds high-demand, low-competition content gaps your competitors missed.",
     images: ["/aurionstack-logo.webp"],
   },
 };

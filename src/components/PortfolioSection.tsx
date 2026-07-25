@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: "KleanBee",
-    url: "https://goa-clean-bee.vercel.app",
+    url: "https://kleanbee-goa.vercel.app/",
     image: "/kleanbee-cleaning-project.webp",
     tags: ["Booking Engine", "Marketplace", "Logistics"],
     description: "Multi-tenant booking platform for urban cleaning and facility management.",

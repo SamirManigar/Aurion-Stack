@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, BookOpen, Zap, Globe, Brain, Smartphone, BarChart3 } from "lucide-react";
 import SchemaOrg, { organizationSchema } from "@/components/SchemaOrg";
-// ─── Topic Cluster Data ──────────────────────────────────────────────────────
+import Link from "next/link";
+import { BlogPost } from "@/lib/mdx";
+
+const IconMap: Record<string, React.ElementType> = {
+  Brain,
+  Globe,
+  Zap,
+  Smartphone,
+  BarChart3,
+};
 
 const pillarSummary = `
 Full-Stack AI Development is the convergence of modern frontend frameworks, scalable backend infrastructure,
@@ -27,6 +36,30 @@ compromising on code quality, test coverage, or deployment reliability.
 `.trim();
 
 const clusterArticles = [
+  {
+    icon: Zap,
+    category: "Case Study",
+    title: "How to 10x YouTube Growth Using AI Content Gap Analysis",
+    description: "A deep dive into how creators are using GapTuber to find high-demand, low-competition video topics before they trend. Includes practical prompts for scripting animations.",
+    keywords: ["GapTuber", "YouTube SEO", "Content Gap", "AI Idea Generator"],
+    readTime: "6 min read",
+  },
+  {
+    icon: Globe,
+    category: "Enterprise Dev",
+    title: "Modernising Legacy Java Monoliths with Next.js and Microservices",
+    description: "A strategic playbook for migrating enterprise Java backends to a decoupled architecture. How to use Next.js as the BFF (Backend for Frontend) for speed and scalability.",
+    keywords: ["Java", "Next.js", "Microservices", "Enterprise Architecture"],
+    readTime: "14 min read",
+  },
+  {
+    icon: Brain,
+    category: "DevOps",
+    title: "Zero-Downtime Deployments: Automating CI/CD with Jenkins and Vercel",
+    description: "Step-by-step Jenkins pipeline configuration to automate testing, build steps, and zero-downtime production deployments to Vercel and GCP.",
+    keywords: ["Jenkins", "Vercel", "CI/CD", "DevOps", "Automation"],
+    readTime: "11 min read",
+  },
   {
     icon: Brain,
     category: "AI & LLMs",
@@ -120,8 +153,22 @@ const articleSchema = {
 
 // ─── Page Component ───────────────────────────────────────────────────────────
 
-const InsightsPage = () => {
+const InsightsPage = ({ dynamicPosts = [] }: { dynamicPosts?: BlogPost[] }) => {
   const router = useRouter();
+
+  // Map dynamic posts to the same format as clusterArticles
+  const formattedDynamicPosts = dynamicPosts.map(post => ({
+    icon: IconMap[post.icon] || Globe,
+    category: post.category,
+    title: post.title,
+    description: post.description,
+    keywords: post.keywords,
+    readTime: post.readTime,
+    slug: post.slug,
+  }));
+
+  const allArticles = [...formattedDynamicPosts, ...clusterArticles];
+
     return (
     <div className="min-h-screen bg-background text-foreground">
       <SchemaOrg schemas={[organizationSchema, articleSchema]} />
@@ -212,22 +259,17 @@ const InsightsPage = () => {
               </h2>
             </div>
             <span className="text-sm font-medium text-muted-foreground hidden sm:block">
-              {clusterArticles.length} guides
+              {allArticles.length} guides
             </span>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {clusterArticles.map((article, i) => {
+            {allArticles.map((article, i) => {
               const Icon = article.icon;
-              return (
-                <motion.article
-                  key={article.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
-                >
+              const isDynamic = 'slug' in article;
+              
+              const CardContent = (
+                <>
                   {/* Category + read time */}
                   <div className="mb-5 flex items-center justify-between gap-3">
                     <span className="inline-flex items-center gap-2 rounded-md bg-muted px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-foreground">
@@ -259,11 +301,34 @@ const InsightsPage = () => {
                     ))}
                   </div>
 
-                  {/* "Coming soon" CTA */}
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-primary opacity-80 group-hover:opacity-100 transition-opacity">
-                    <span>Coming Soon</span>
-                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                  </div>
+                  {isDynamic ? (
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-primary opacity-80 group-hover:opacity-100 transition-opacity">
+                      <span>Read Article</span>
+                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-primary opacity-80 group-hover:opacity-100 transition-opacity">
+                      <span>Coming Soon</span>
+                      <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    </div>
+                  )}
+                </>
+              );
+
+              return isDynamic ? (
+                <Link href={`/insights/${article.slug}`} key={article.title} className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+                  {CardContent}
+                </Link>
+              ) : (
+                <motion.article
+                  key={article.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
+                >
+                  {CardContent}
                 </motion.article>
               );
             })}

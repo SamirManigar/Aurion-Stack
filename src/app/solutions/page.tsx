@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AI & Automation Solutions by Niche | Aurion Stack",
-  description: "Browse our targeted AI and automation solutions built for e-commerce brands, agencies, SaaS founders, and local businesses.",
+  title: "Custom AI Solutions & Web App Development | Aurion Stack",
+  description: "Explore targeted AI solutions, custom web app development, and automation playbooks for e-commerce, agencies, SaaS founders, and local businesses.",
 };
 
 const solutions = [

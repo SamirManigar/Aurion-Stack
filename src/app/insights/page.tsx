@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import InsightsClient from "./InsightsClient";
+import { getAllPosts } from "@/lib/mdx";
 
 export const metadata: Metadata = {
   title: "Insights — Aurion Stack | AI Automation & Web Architecture Strategy",
@@ -7,5 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage() {
-  return <InsightsClient />;
+  const posts = getAllPosts();
+  return <InsightsClient dynamicPosts={posts} />;
 }
