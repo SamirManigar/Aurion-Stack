@@ -119,6 +119,42 @@ export async function GET(request: Request) {
       sha: commitData.sha,
     });
 
+    // 5. Send Notification (Optional)
+    let postTitle = title;
+    let postDesc = 'No description provided.';
+    
+    if (process.env.NOTIFICATION_WEBHOOK_URL) {
+      try {
+        const titleMatch = markdownContent.match(/title:\s*"([^"]+)"/);
+        const descMatch = markdownContent.match(/description:\s*"([^"]+)"/);
+        postTitle = titleMatch ? titleMatch[1] : title;
+        postDesc = descMatch ? descMatch[1] : 'No description provided.';
+        
+        const notificationText = `✅ **New Automated Blog Published!**\n\n**Title:** ${postTitle}\n**Summary:** ${postDesc}\n**URL:** https://aurionstack.dev/insights/${slug}`;
+        
+        // Supports Slack/Discord style webhooks
+        await fetch(process.env.NOTIFICATION_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: notificationText, content: notificationText }), 
+        });
+      } catch (webhookError) {
+        console.error("Failed to send webhook notification:", webhookError);
+      }
+    }
+
+    // 6. Log detailed info for the Vercel Runtime Logs (Terminal)
+    console.log(`
+    =========================================
+    ✅ AUTOMATED BLOG GENERATION SUCCESSFUL
+    =========================================
+    Title: ${postTitle}
+    Slug: ${slug}
+    Summary: ${postDesc}
+    Repository: ${owner}/${repo}
+    =========================================
+    `);
+
     return NextResponse.json({ success: true, message: `Successfully published ${filename}` });
 
   } catch (error: any) {
