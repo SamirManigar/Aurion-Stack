@@ -24,7 +24,7 @@ import {
   Package,
   Wrench,
 } from "lucide-react";
-import { PACKAGES, AI_ADDON, CurrencyToggle, type Currency } from "@/components/PricingSection";
+import { PACKAGES, AI_ADDON, CurrencyBadge, useAutoCurrency, type Currency } from "@/components/PricingSection";
 
 // ─── DETAILED FEATURE GROUPS ─────────────────────────────────────────────────
 
@@ -268,7 +268,7 @@ const MAINTENANCE_PLANS = [
 
 const PricingDashboard = () => {
   const router = useRouter();
-  const [currency, setCurrency] = useState<Currency>("INR");
+  const currency = useAutoCurrency();
 
   const tierColors: Record<number, string> = {
     1: "hsl(221 83% 53%)",
@@ -293,7 +293,7 @@ const PricingDashboard = () => {
           <span className="text-sm font-bold tracking-tight text-foreground hidden sm:block">
             Strategic Growth Packages
           </span>
-          <CurrencyToggle currency={currency} onChange={setCurrency} />
+          <CurrencyBadge currency={currency} />
         </div>
       </div>
 

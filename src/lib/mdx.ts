@@ -27,13 +27,20 @@ export function getPostBySlug(slug: string): BlogPost {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  let formattedDate = data.date || "";
+  if (data.date instanceof Date) {
+    formattedDate = data.date.toISOString().split("T")[0];
+  } else if (typeof data.date === "string") {
+    formattedDate = data.date;
+  }
+
   return {
     slug: realSlug,
     title: data.title || "Untitled",
     description: data.description || "",
-    date: data.date || "",
+    date: String(formattedDate),
     category: data.category || "Uncategorized",
-    keywords: data.keywords || [],
+    keywords: Array.isArray(data.keywords) ? data.keywords : [],
     readTime: data.readTime || "5 min read",
     icon: data.icon || "Globe",
     content: content,

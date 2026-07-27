@@ -21,7 +21,7 @@ export const PACKAGES = [
     name: "Micro Presence",
     tagline: "A fast, professional web presence for your local business.",
     bestFor: "Local shops, cafes & independent service providers.",
-    inrPrice: "₹6,999",
+    inrPrice: "₹9,999",
     usdPrice: "$149",
     popular: false,
     delivery: "3–5 Business Days",
@@ -151,44 +151,76 @@ export const AI_ADDON = {
 };
 
 
-// ─── CURRENCY TOGGLE ─────────────────────────────────────────────────────────
+// ─── CURRENCY BADGE & AUTO-DETECTION HOOK ────────────────────────────────────
 
-export const CurrencyToggle = ({
-  currency,
-  onChange,
-}: {
-  currency: Currency;
-  onChange: (c: Currency) => void;
-}) => (
+export const CurrencyBadge = ({ currency }: { currency: Currency }) => (
   <div
-    className="inline-flex items-center rounded-full border border-white/10 bg-muted/30 p-1 gap-1"
-    role="group"
-    aria-label="Select pricing currency"
+    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-muted/30 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground shadow-sm"
+    title="Currency detected automatically based on your location"
   >
-    {(["INR", "USD"] as Currency[]).map((c) => (
-      <button
-        key={c}
-        id={`currency-toggle-${c.toLowerCase()}`}
-        onClick={() => onChange(c)}
-        aria-pressed={currency === c}
-        className={`relative rounded-full px-4 py-1.5 text-xs font-semibold transition-colors duration-200 ${
-          currency === c
-            ? "text-background"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        {currency === c && (
-          <motion.span
-            layoutId="pricing-currency-pill"
-            className="absolute inset-0 rounded-full bg-foreground"
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
-          />
-        )}
-        <span className="relative z-10">{c === "INR" ? "₹ INR" : "$ USD"}</span>
-      </button>
-    ))}
+    <span>{currency === "INR" ? "🇮🇳 INR (India)" : "🌐 USD (Global)"}</span>
   </div>
 );
+
+export function useAutoCurrency(): Currency {
+  const [currency, setCurrency] = useState<Currency>("INR");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    // Instant zero-latency heuristic via browser timezone
+    try {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (
+        timeZone.startsWith("America/") ||
+        timeZone.startsWith("Europe/") ||
+        timeZone.startsWith("Australia/") ||
+        timeZone.startsWith("Pacific/") ||
+        timeZone.startsWith("Africa/") ||
+        timeZone.startsWith("Atlantic/") ||
+        (timeZone.startsWith("Asia/") && !timeZone.includes("Kolkata") && !timeZone.includes("Calcutta") && !timeZone.includes("Colombo"))
+      ) {
+        if (isMounted) setCurrency("USD");
+      } else {
+        if (isMounted) setCurrency("INR");
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    // Precise verification via IP geolocation
+    async function detectByIp() {
+      try {
+        const res = await fetch("/api/geo");
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.source !== "default" && (data.currency === "INR" || data.currency === "USD")) {
+            if (isMounted) setCurrency(data.currency as Currency);
+            return;
+          }
+        }
+        // Direct client-side fallback if server headers weren't available
+        const extRes = await fetch("https://api.country.is/");
+        if (extRes.ok) {
+          const extData = await extRes.json();
+          if (extData && extData.country) {
+            const isIndia = extData.country.toUpperCase() === "IN";
+            if (isMounted) setCurrency(isIndia ? "INR" : "USD");
+          }
+        }
+      } catch (err) {
+        // Ignore network errors and retain timezone heuristic
+      }
+    }
+    detectByIp();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return currency;
+}
 
 // ─── PACKAGE MODAL ───────────────────────────────────────────────────────────
 
@@ -355,7 +387,7 @@ const PricingSection = () => {
   const [selectedPkg, setSelectedPkg] = useState<(typeof PACKAGES)[0] | null>(
     null
   );
-  const [currency, setCurrency] = useState<Currency>("INR");
+  const currency = useAutoCurrency();
   const router = useRouter();
 
   return (
@@ -399,8 +431,8 @@ const PricingSection = () => {
                   Development & engineering only. Final project charges may vary depending on custom scope, domain/hosting, and third-party integrations.
                 </p>
               </div>
-              {/* Currency Toggle */}
-              <CurrencyToggle currency={currency} onChange={setCurrency} />
+              {/* Currency Badge */}
+              <CurrencyBadge currency={currency} />
             </div>
           </motion.div>
 
