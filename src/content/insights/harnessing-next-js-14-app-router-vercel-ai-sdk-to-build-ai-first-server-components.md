@@ -1,7 +1,7 @@
 ---  
 title: "Harnessing Next.js 14 App Router & Vercel AI SDK to Build AI‑First Server Components"  
 description: "A deep dive into Next.js 14’s App Router, Vercel AI SDK, and edge‑rendered server components for AI‑powered web apps."  
-date: 2026-07-25  
+date: "2026-07-25"  
 category: "AI & LLMs"  
 keywords: ["Next.js 14","Vercel AI SDK","Server Components","Edge Rendering","AI-powered Web Apps"]  
 readTime: "9 min read"  

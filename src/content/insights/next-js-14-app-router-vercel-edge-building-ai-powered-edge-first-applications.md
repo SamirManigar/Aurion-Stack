@@ -1,7 +1,7 @@
 ---
 title: "Next.js 14 App Router & Vercel Edge: Building AI‑Powered, Edge‑First Applications"
 description: "A deep dive into Next.js 14’s App Router, Vercel Edge Functions, and OpenAI integration. Learn how to architect, code, and deploy AI‑driven web apps that run at the edge with optimal performance and SEO."
-date: 2026-07-27
+date: "2026-07-27"
 category: "AI & LLMs"
 keywords: ["Next.js 14","App Router","Vercel Edge Functions","AI integration","OpenAI API"]
 readTime: "9 min read"

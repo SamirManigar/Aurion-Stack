@@ -27,23 +27,31 @@ export function getPostBySlug(slug: string): BlogPost {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  let formattedDate = data.date || "";
-  if (data.date instanceof Date) {
-    formattedDate = data.date.toISOString().split("T")[0];
-  } else if (typeof data.date === "string") {
-    formattedDate = data.date;
+  let formattedDate = "";
+  if (data.date) {
+    if (typeof data.date === "object" && typeof data.date.toISOString === "function") {
+      formattedDate = data.date.toISOString().split("T")[0];
+    } else if (Object.prototype.toString.call(data.date) === "[object Date]") {
+      try {
+        formattedDate = (data.date as Date).toISOString().split("T")[0];
+      } catch {
+        formattedDate = String(data.date);
+      }
+    } else {
+      formattedDate = String(data.date);
+    }
   }
 
   return {
-    slug: realSlug,
-    title: data.title || "Untitled",
-    description: data.description || "",
+    slug: String(realSlug),
+    title: String(data.title || "Untitled"),
+    description: String(data.description || ""),
     date: String(formattedDate),
-    category: data.category || "Uncategorized",
-    keywords: Array.isArray(data.keywords) ? data.keywords : [],
-    readTime: data.readTime || "5 min read",
-    icon: data.icon || "Globe",
-    content: content,
+    category: String(data.category || "Uncategorized"),
+    keywords: Array.isArray(data.keywords) ? data.keywords.map((k) => String(k)) : [],
+    readTime: String(data.readTime || "5 min read"),
+    icon: String(data.icon || "Globe"),
+    content: String(content || ""),
   };
 }
 
