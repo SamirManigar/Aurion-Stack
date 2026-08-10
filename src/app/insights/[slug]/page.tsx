@@ -1,14 +1,17 @@
 import { Metadata } from "next";
 import { getPostBySlug, getPostSlugs } from "@/lib/mdx";
 import ReactMarkdown from "react-markdown";
-import { Clock, ArrowRight, Sparkles } from "lucide-react";
+import remarkGfm from "remark-gfm";
+import { Clock, ArrowRight, Sparkles, Copy, Check } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SchemaOrg from "@/components/SchemaOrg";
+import CodeBlock from "@/components/CodeBlock";
 
 const BASE_URL = "https://www.aurionstack.dev";
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
+  // Developer categories
   "AI & LLMs":       { bg: "bg-violet-500/10",  text: "text-violet-400",  border: "border-violet-500/30" },
   "Case Study":      { bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/30" },
   "Enterprise Dev":  { bg: "bg-blue-500/10",    text: "text-blue-400",    border: "border-blue-500/30" },
@@ -18,6 +21,13 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
   "Mobile":          { bg: "bg-pink-500/10",    text: "text-pink-400",    border: "border-pink-500/30" },
   "SEO & GEO":       { bg: "bg-teal-500/10",    text: "text-teal-400",    border: "border-teal-500/30" },
   "Web Development": { bg: "bg-indigo-500/10",  text: "text-indigo-400",  border: "border-indigo-500/30" },
+  // Business-owner categories (auto-generated posts)
+  "Website Tips":    { bg: "bg-blue-500/10",    text: "text-blue-400",    border: "border-blue-500/30" },
+  "Hiring Tips":     { bg: "bg-amber-500/10",   text: "text-amber-400",   border: "border-amber-500/30" },
+  "AI for Business": { bg: "bg-violet-500/10",  text: "text-violet-400",  border: "border-violet-500/30" },
+  "Marketing":       { bg: "bg-rose-500/10",    text: "text-rose-400",    border: "border-rose-500/30" },
+  "SEO Basics":      { bg: "bg-teal-500/10",    text: "text-teal-400",    border: "border-teal-500/30" },
+  "SaaS Explained":  { bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/30" },
   "default":         { bg: "bg-primary/10",      text: "text-primary",     border: "border-primary/30" },
 };
 
@@ -208,7 +218,64 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               prose-hr:border-border
             "
           >
-            <ReactMarkdown>{post!.content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                // Code blocks → VS Code / terminal style
+                code({ node, className, children, ...props }) {
+                  const isBlock = Boolean(className);
+                  const language = (className || "").replace("language-", ") || "plaintext";
+                  if (!isBlock) {
+                    // Inline code
+                    return (
+                      <code
+                        className="rounded-md bg-violet-500/10 border border-violet-500/20 px-1.5 py-0.5 text-[0.82em] font-mono text-violet-300 before:content-none after:content-none"
+                        {...props}
+                      >
+                        {children}
+                      </code>
+                    );
+                  }
+                  return (
+                    <CodeBlock language={language}>
+                      {String(children).replace(/\n$/, "")}
+                    </CodeBlock>
+                  );
+                },
+                // Blockquotes → tip boxes
+                blockquote({ children }) {
+                  return (
+                    <div className="my-6 flex gap-3 rounded-xl border border-cyan-500/20 bg-cyan-500/5 px-5 py-4">
+                      <span className="mt-0.5 text-cyan-400 text-base">💡</span>
+                      <div className="text-sm text-muted-foreground leading-relaxed [&>p]:m-0">{children}</div>
+                    </div>
+                  );
+                },
+                // Tables
+                table({ children }) {
+                  return (
+                    <div className="my-6 overflow-x-auto rounded-xl border border-border">
+                      <table className="w-full text-sm">{children}</table>
+                    </div>
+                  );
+                },
+                th({ children }) {
+                  return <th className="bg-muted/60 px-4 py-2.5 text-left text-xs font-bold uppercase tracking-wider text-foreground border-b border-border">{children}</th>;
+                },
+                td({ children }) {
+                  return <td className="px-4 py-3 text-sm text-muted-foreground border-b border-border/50">{children}</td>;
+                },
+                // Headings
+                h2({ children }) {
+                  return <h2 className="mt-12 mb-4 text-xl sm:text-2xl font-bold tracking-tight text-foreground border-b border-border pb-2">{children}</h2>;
+                },
+                h3({ children }) {
+                  return <h3 className="mt-8 mb-3 text-lg font-bold text-foreground">{children}</h3>;
+                },
+              }}
+            >
+              {post!.content}
+            </ReactMarkdown>
           </article>
 
           {/* Sticky sidebar */}

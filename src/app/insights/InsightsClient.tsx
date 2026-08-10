@@ -9,6 +9,7 @@ import { BlogPost } from "@/lib/mdx";
 
 // ─── Category color system ─────────────────────────────────────────────────
 const categoryConfig: Record<string, { bg: string; text: string; border: string; glow: string; dot: string }> = {
+  // Original dev categories (kept for backward compat)
   "AI & LLMs":        { bg: "bg-violet-500/10",   text: "text-violet-400",  border: "border-violet-500/30",  glow: "hover:shadow-violet-500/10",  dot: "bg-violet-400" },
   "Case Study":       { bg: "bg-emerald-500/10",  text: "text-emerald-400", border: "border-emerald-500/30", glow: "hover:shadow-emerald-500/10", dot: "bg-emerald-400" },
   "Enterprise Dev":   { bg: "bg-blue-500/10",     text: "text-blue-400",    border: "border-blue-500/30",    glow: "hover:shadow-blue-500/10",    dot: "bg-blue-400" },
@@ -18,6 +19,13 @@ const categoryConfig: Record<string, { bg: string; text: string; border: string;
   "Mobile":           { bg: "bg-pink-500/10",     text: "text-pink-400",    border: "border-pink-500/30",    glow: "hover:shadow-pink-500/10",    dot: "bg-pink-400" },
   "SEO & GEO":        { bg: "bg-teal-500/10",     text: "text-teal-400",    border: "border-teal-500/30",    glow: "hover:shadow-teal-500/10",    dot: "bg-teal-400" },
   "Web Development":  { bg: "bg-indigo-500/10",   text: "text-indigo-400",  border: "border-indigo-500/30",  glow: "hover:shadow-indigo-500/10",  dot: "bg-indigo-400" },
+  // Business-owner categories (auto-generated posts)
+  "Website Tips":     { bg: "bg-blue-500/10",     text: "text-blue-400",    border: "border-blue-500/30",    glow: "hover:shadow-blue-500/10",    dot: "bg-blue-400" },
+  "Hiring Tips":      { bg: "bg-amber-500/10",    text: "text-amber-400",   border: "border-amber-500/30",   glow: "hover:shadow-amber-500/10",   dot: "bg-amber-400" },
+  "AI for Business":  { bg: "bg-violet-500/10",   text: "text-violet-400",  border: "border-violet-500/30",  glow: "hover:shadow-violet-500/10",  dot: "bg-violet-400" },
+  "Marketing":        { bg: "bg-rose-500/10",     text: "text-rose-400",    border: "border-rose-500/30",    glow: "hover:shadow-rose-500/10",    dot: "bg-rose-400" },
+  "SEO Basics":       { bg: "bg-teal-500/10",     text: "text-teal-400",    border: "border-teal-500/30",    glow: "hover:shadow-teal-500/10",    dot: "bg-teal-400" },
+  "SaaS Explained":   { bg: "bg-emerald-500/10",  text: "text-emerald-400", border: "border-emerald-500/30", glow: "hover:shadow-emerald-500/10", dot: "bg-emerald-400" },
   "default":          { bg: "bg-primary/10",       text: "text-primary",     border: "border-primary/30",     glow: "hover:shadow-primary/10",     dot: "bg-primary" },
 };
 
