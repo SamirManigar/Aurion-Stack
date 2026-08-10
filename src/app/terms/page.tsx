@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for Aurion Stack — the rules governing use of our website and services.",
-  alternates: { canonical: "https://aurionstack.dev/terms" },
+  alternates: { canonical: "https://www.aurionstack.dev/terms" },
   robots: { index: true, follow: true },
 };
 

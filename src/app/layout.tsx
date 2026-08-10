@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: "We are a premier SaaS MVP development agency and AI web design team. We build custom AI systems, web apps, and automation tools to scale your business fast.",
   keywords: "SaaS startup MVP agency, AI web designers, custom web app development, mobile app development, AI automation agency, custom AI agents, SaaS development, AI customer support, business automation, AI chatbot, workflow automation",
-  authors: [{ name: "Aurion Stack", url: "https://aurionstack.dev" }],
+  authors: [{ name: "Aurion Stack", url: "https://www.aurionstack.dev" }],
   creator: "Aurion Stack",
   publisher: "Aurion Stack",
   robots: {

@@ -37,7 +37,7 @@ const auraiqSchema = {
   ],
   provider: { "@id": "https://www.aurionstack.dev/#organization" },
   featureList: ["24/7 AI support", "Custom knowledge base", "WhatsApp integration", "Lead capture", "CRM integration"],
-  screenshot: "https://aurionstack.dev/aurionstack-logo.webp",
+  screenshot: "https://www.aurionstack.dev/aurionstack-logo.webp",
 };
 
 export default function AuraIQPage() {

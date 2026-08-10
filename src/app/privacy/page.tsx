@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for Aurion Stack — how we collect, use, and protect your personal data.",
-  alternates: { canonical: "https://aurionstack.dev/privacy" },
+  alternates: { canonical: "https://www.aurionstack.dev/privacy" },
   robots: { index: true, follow: true },
 };
 
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">1. Who We Are</h2>
-            <p>Aurion Stack ("we", "our", "us") is an AI and SaaS development agency operating globally. Our website is <a href="https://aurionstack.dev" className="text-primary underline">https://aurionstack.dev</a>. You can contact us at <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
+            <p>Aurion Stack ("we", "our", "us") is an AI and SaaS development agency operating globally. Our website is <a href="https://www.aurionstack.dev" className="text-primary underline">https://www.aurionstack.dev</a>. You can contact us at <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
           </section>
 
           <section>

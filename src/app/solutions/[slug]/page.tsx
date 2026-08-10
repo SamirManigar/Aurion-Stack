@@ -287,7 +287,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     openGraph: {
       title: data.title,
       description: data.metaDescription,
-      url: `https://aurionstack.dev/solutions/${slug}`,
+      url: `https://www.aurionstack.dev/solutions/${slug}`,
     },
     twitter: {
       card: "summary_large_image",

@@ -10,19 +10,19 @@ const serviceSchemas = [
   buildServiceSchema(
     "Custom Web Development",
     "Lightning-fast, SEO-optimised websites and web applications built with React, Next.js, TypeScript and Tailwind CSS. Mobile-first, accessible, and production-ready.",
-    "https://aurionstack.dev/services#custom-web-development",
+    "https://www.aurionstack.dev/services#custom-web-development",
     ["React", "Next.js", "TypeScript", "Tailwind CSS", "SEO", "Web Development", "Remote"]
   ),
   buildServiceSchema(
     "Cross-Platform Mobile App Development",
     "iOS and Android apps from a single React Native and Expo codebase. Push notifications, in-app payments, offline support, and App Store submission handled end-to-end.",
-    "https://aurionstack.dev/services#mobile-app-development",
+    "https://www.aurionstack.dev/services#mobile-app-development",
     ["React Native", "Expo", "iOS", "Android", "Mobile App Development", "Global"]
   ),
   buildServiceSchema(
     "AI Automation & Chatbot Integration",
     "Custom AI chatbots and automation pipelines using GPT-4, LLaMA, Groq, LangChain, and n8n. Streamline customer support, data processing, and internal workflows.",
-    "https://aurionstack.dev/services#ai-automation",
+    "https://www.aurionstack.dev/services#ai-automation",
     ["AI Automation", "Chatbot", "LangChain", "OpenAI", "Groq", "n8n"]
   ),
   buildServiceSchema(
