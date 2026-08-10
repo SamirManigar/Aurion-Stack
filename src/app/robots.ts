@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/', '/admin/'],
       },
     ],
-    sitemap: 'https://aurionstack.dev/sitemap.xml',
-    host: 'https://aurionstack.dev',
+    sitemap: 'https://www.aurionstack.dev/sitemap.xml',
+    host: 'https://www.aurionstack.dev',
   };
 }

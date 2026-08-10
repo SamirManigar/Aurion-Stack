@@ -224,7 +224,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 // Code blocks → VS Code / terminal style
                 code({ node, className, children, ...props }) {
                   const isBlock = Boolean(className);
-                  const language = (className || "").replace("language-", ") || "plaintext";
+                  const language = (className || "").replace("language-", "") || "plaintext";
                   if (!isBlock) {
                     // Inline code
                     return (

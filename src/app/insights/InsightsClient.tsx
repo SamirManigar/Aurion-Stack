@@ -37,30 +37,27 @@ const IconMap: Record<string, React.ElementType> = { Brain, Globe, Zap, Smartpho
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Full-Stack AI Development — The Complete Guide for 2026",
-  description: "A topic cluster pillar page covering full-stack AI development: LLM integration, React/Next.js deployment, mobile apps, SEO, and GEO strategies for global startups and engineering teams.",
+  headline: "Digital Growth & AI Automation — A Guide for Business Owners",
+  description: "A comprehensive resource hub for business owners covering website design, AI automation, local SEO, and digital growth strategies to scale operations and acquire customers.",
   url: "https://www.aurionstack.dev/insights",
   datePublished: "2026-03-22",
-  dateModified: "2026-03-25",
+  dateModified: "2026-08-10",
   author: { "@id": "https://www.aurionstack.dev/#organization" },
   publisher: { "@id": "https://www.aurionstack.dev/#organization" },
   inLanguage: "en-US",
-  keywords: "Full-Stack Development, AI Development, React, Next.js, LLM, Groq, Vercel, GEO, SEO, Product Engineering",
+  keywords: "Business Website, Web Design Agency, AI Automation for Business, Local SEO, Digital Marketing, SaaS, Lead Generation",
 };
 
 // Static cluster articles (coming soon)
 const clusterArticles = [
-  { icon: Zap, category: "Case Study", title: "How to 10x YouTube Growth Using AI Content Gap Analysis", description: "A deep dive into how creators are using GapTuber to find high-demand, low-competition video topics before they trend.", keywords: ["GapTuber", "YouTube SEO", "Content Gap", "AI Ideas"], readTime: "6 min read" },
-  { icon: Globe, category: "Enterprise Dev", title: "Modernising Legacy Java Monoliths with Next.js and Microservices", description: "A strategic playbook for migrating enterprise Java backends to a decoupled architecture using Next.js as the BFF.", keywords: ["Java", "Next.js", "Microservices", "Enterprise"], readTime: "14 min read" },
-  { icon: Brain, category: "DevOps", title: "Zero-Downtime Deployments: Automating CI/CD with Jenkins and Vercel", description: "Step-by-step Jenkins pipeline configuration to automate testing, build steps, and zero-downtime production deployments.", keywords: ["Jenkins", "Vercel", "CI/CD", "DevOps"], readTime: "11 min read" },
-  { icon: Brain, category: "AI & LLMs", title: "How to Integrate Groq LLaMA 3 into a React App", description: "A step-by-step guide to streaming LLaMA 3.1 responses from the Groq API into a React frontend using server-sent events.", keywords: ["Groq API", "LLaMA 3", "React", "AI Chatbot"], readTime: "12 min read" },
-  { icon: Globe, category: "Deployment", title: "Vercel Deployment Architecture for Scaling SaaS", description: "Edge functions, ISR, image optimisation, and environment variable management on Vercel for global low-latency delivery.", keywords: ["Vercel", "Next.js", "Edge Functions", "SaaS"], readTime: "9 min read" },
-  { icon: Zap, category: "Performance", title: "Achieving Sub-2s LCP on a React SPA Without SSR", description: "Lazy loading, code splitting, WebP images, fetchPriority, and resource hints that push a React app into green Core Web Vitals.", keywords: ["Core Web Vitals", "LCP", "React SPA", "SEO"], readTime: "10 min read" },
-  { icon: Brain, category: "AI & LLMs", title: "Fine-Tuning Gemma 2 on Google Cloud for Domain-Specific Context", description: "Using Vertex AI and GCP's TPU infrastructure to fine-tune Google's Gemma 2 model on custom business data.", keywords: ["Gemma 2", "Fine-tuning", "GCP", "Vertex AI"], readTime: "15 min read" },
-  { icon: Smartphone, category: "Mobile", title: "Building an Offline-First React Native App with Expo and SQLite", description: "Architecture patterns for apps that work without internet using expo-sqlite for local storage and optimistic UI updates.", keywords: ["React Native", "Expo", "SQLite", "Offline-first"], readTime: "11 min read" },
-  { icon: BarChart3, category: "SEO & GEO", title: "GEO vs SEO: How to Optimise Your Platform for AI Overviews in 2026", description: "Traditional SEO gets you blue links. GEO gets you cited inside Gemini AI Overviews and ChatGPT answers.", keywords: ["GEO", "SEO", "AI Overview", "Schema", "Gemini"], readTime: "8 min read" },
-  { icon: Globe, category: "Web Development", title: "Evaluating Next.js App Router for Enterprise Applications", description: "A frank comparison of Next.js Pages vs App Router for large-scale enterprise websites — hosting costs and maintainability.", keywords: ["Next.js", "Architecture", "Enterprise"], readTime: "7 min read" },
-  { icon: Brain, category: "AI & LLMs", title: "Building a RAG Pipeline with LangChain, Pinecone, and OpenAI", description: "Retrieval-Augmented Generation step-by-step: ingest documents into Pinecone, retrieve chunks, and return grounded answers via GPT-4.", keywords: ["RAG", "LangChain", "Pinecone", "OpenAI"], readTime: "13 min read" },
+  { icon: Globe, category: "Website Tips", title: "How Much Should a Professional Business Website Cost in 2026?", description: "An honest breakdown of website pricing, from cheap DIY builders to custom agency solutions, and what your business actually needs.", keywords: ["Website Cost", "Hire Developer", "Web Design Pricing", "Small Business"], readTime: "7 min read" },
+  { icon: Brain, category: "AI for Business", title: "How Local Service Businesses Are Using AI to Answer Phones 24/7", description: "Discover how plumbers, electricians, and salons are deploying AI receptionists to capture leads when they can't answer the phone.", keywords: ["AI Receptionist", "Local Business", "Automate Calls", "More Leads"], readTime: "5 min read" },
+  { icon: Zap, category: "Marketing", title: "7 Signs Your Current Website Is Actually Costing You Customers", description: "Is your website turning visitors away? Learn how slow load times, poor mobile design, and confusing navigation destroy trust and sales.", keywords: ["Website Redesign", "Bad Website", "Conversion Rate", "Get Customers"], readTime: "6 min read" },
+  { icon: BarChart3, category: "SEO Basics", title: "Why Your Competitors Show Up on Google (And You Don't)", description: "A simple, jargon-free guide to understanding Local SEO and the 3 exact steps you need to take to get your business on the first page.", keywords: ["Local SEO", "Rank on Google", "Google Business", "SEO Basics"], readTime: "8 min read" },
+  { icon: Smartphone, category: "AI for Business", title: "Automate Your WhatsApp: Stop Losing Leads Who Message After Hours", description: "Learn how to easily set up automated WhatsApp replies and chatbots to instantly engage prospects the moment they reach out.", keywords: ["WhatsApp Automation", "Chatbot", "Lead Generation", "Business WhatsApp"], readTime: "5 min read" },
+  { icon: Globe, category: "SaaS Explained", title: "What is SaaS? A Non-Technical Guide for Business Owners", description: "Software as a Service is dominating the business world. Here's what it means, why it matters, and how you could turn your expertise into a software product.", keywords: ["SaaS Meaning", "Build Software", "Tech Startup", "Cloud Software"], readTime: "6 min read" },
+  { icon: BarChart3, category: "Hiring Tips", title: "The 5 Questions You Must Ask Before Hiring Any Web Developer", categoryStyle: "Hiring Tips", description: "Don't get ripped off. Ask these five crucial questions to ensure the web agency you hire is legitimate, reliable, and capable.", keywords: ["Hire Developer", "Web Agency", "Developer Red Flags", "Outsourcing"], readTime: "4 min read" },
+  { icon: Globe, category: "Website Tips", title: "E-Commerce vs a Simple 'Brochure' Site: What Do You Need?", description: "Trying to decide between a full online store and a simple 5-page website? We break down the costs, benefits, and which one fits your business model.", keywords: ["Ecommerce", "Shopify vs Custom", "Business Website", "Online Store"], readTime: "7 min read" },
 ];
 
 const ALL_FILTER = "All";
