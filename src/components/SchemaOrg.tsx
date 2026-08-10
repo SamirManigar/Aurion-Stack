@@ -36,16 +36,16 @@ export default SchemaOrg;
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://aurionstack.dev/#organization",
+  "@id": "https://www.aurionstack.dev/#organization",
   name: "Aurion Stack",
-  url: "https://aurionstack.dev",
+  url: "https://www.aurionstack.dev",
   logo: {
     "@type": "ImageObject",
-    url: "https://aurionstack.dev/aurionstack-logo.webp",
+    url: "https://www.aurionstack.dev/aurionstack-logo.webp",
     width: 512,
     height: 512,
   },
-  image: "https://aurionstack.dev/aurionstack-logo.webp",
+  image: "https://www.aurionstack.dev/aurionstack-logo.webp",
   description:
     "Build AI support agents, lead-generation systems, and automation workflows that reduce costs and scale operations for global businesses.",
   foundingDate: "2024",
@@ -87,13 +87,13 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://aurionstack.dev/#website",
-  url: "https://aurionstack.dev",
+  "@id": "https://www.aurionstack.dev/#website",
+  url: "https://www.aurionstack.dev",
   name: "Aurion Stack",
   description:
     "Custom AI Agents & Automation for Growing Businesses. We build systems that reduce costs and capture leads.",
   publisher: {
-    "@id": "https://aurionstack.dev/#organization",
+    "@id": "https://www.aurionstack.dev/#organization",
   },
   inLanguage: "en-US",
 };
@@ -112,7 +112,7 @@ export const buildServiceSchema = (
   url,
   keywords: keywords.join(", "),
   provider: {
-    "@id": "https://aurionstack.dev/#organization",
+    "@id": "https://www.aurionstack.dev/#organization",
   },
   // Worldwide service delivery
   areaServed: { "@type": "AdministrativeArea", name: "Worldwide" },

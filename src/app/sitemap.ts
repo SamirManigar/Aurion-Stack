@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { getAllPosts } from '@/lib/mdx';
 
 const solutionSlugs = [
   'ai-chatbot-for-shopify',
@@ -18,8 +19,9 @@ const solutionSlugs = [
   'saas-mvp-development-agency',
 ];
 
+const base = 'https://www.aurionstack.dev';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://aurionstack.dev';
   const now = new Date();
 
   const core: MetadataRoute.Sitemap = [
@@ -43,5 +45,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...core, ...solutions];
+  // Dynamically map all MDX blog posts — date-accurate lastModified
+  const posts = getAllPosts();
+  const insightPosts: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${base}/insights/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...core, ...solutions, ...insightPosts];
 }
+

@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-heading" }
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aurionstack.dev"),
+  metadataBase: new URL("https://www.aurionstack.dev"),
   title: {
     default: "Aurion Stack | SaaS MVP Development Agency & Custom AI Solutions",
     template: "%s | Aurion Stack",
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   alternates: {
-    canonical: "https://aurionstack.dev",
+    canonical: "https://www.aurionstack.dev",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aurionstack.dev/",
+    url: "https://www.aurionstack.dev/",
     title: "Aurion Stack | SaaS MVP Development Agency & Custom AI Solutions",
     description: "We are a premier SaaS MVP development agency and AI web design team. We build custom AI systems, web apps, and automation tools to scale your business fast.",
     siteName: "Aurion Stack",
-    images: [{ url: "/aurionstack-logo.webp", width: 512, height: 512, alt: "Aurion Stack — AI-Powered SaaS & Automation Agency" }],
+    images: [{ url: "/aurionstack-logo.webp", width: 1200, height: 630, alt: "Aurion Stack — AI-Powered SaaS & Automation Agency" }],
   },
   twitter: {
     card: "summary_large_image",

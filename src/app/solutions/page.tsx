@@ -4,8 +4,24 @@ import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Custom AI Solutions & Web App Development | Aurion Stack",
-  description: "Explore targeted AI solutions, custom web app development, and automation playbooks for e-commerce, agencies, SaaS founders, and local businesses.",
+  title: "AI Automation & SaaS Solutions for Ecommerce, Agencies & Startups | Aurion Stack",
+  description: "15 targeted AI solutions built for your niche. Cut support costs by 40%, automate lead generation, and ship your SaaS MVP in 6 weeks. Book a free call.",
+  alternates: { canonical: "https://www.aurionstack.dev/solutions" },
+  openGraph: {
+    type: "website",
+    url: "https://www.aurionstack.dev/solutions",
+    title: "AI Automation & SaaS Solutions for Ecommerce, Agencies & Startups | Aurion Stack",
+    description: "15 targeted AI solutions built for your niche. Cut support costs by 40%, automate lead generation, and ship your SaaS MVP in 6 weeks.",
+    siteName: "Aurion Stack",
+    images: [{ url: "/aurionstack-logo.webp", width: 1200, height: 630, alt: "Aurion Stack Solutions" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation & SaaS Solutions for Ecommerce, Agencies & Startups | Aurion Stack",
+    description: "15 targeted AI solutions. Cut costs by 40%, automate leads, ship MVP in 6 weeks.",
+    images: ["/aurionstack-logo.webp"],
+    site: "@aurionstack",
+  },
 };
 
 const solutions = [

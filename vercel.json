@@ -1,8 +1,10 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "has": [{ "type": "host", "value": "aurionstack.dev" }],
+      "destination": "https://www.aurionstack.dev/$1",
+      "permanent": true
     }
   ],
   "crons": [
