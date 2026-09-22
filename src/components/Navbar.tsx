@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Rocket, Video, Bot, BriefcaseBusiness } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, Bot, QrCode } from "lucide-react";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
@@ -15,10 +15,9 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const products = [
-  { label: "AuraIQ", href: "/auraiq", icon: Bot, desc: "24/7 AI Employees" },
-  { label: "Visioscript", href: "/visioscript", icon: Video, desc: "AI Video Editing" },
+  { label: "RevQR", href: "https://revqr.tech", icon: QrCode, desc: "Smart QR Reviews" },
   { label: "GapTuber", href: "/gaptuber", icon: GapTuberIcon, desc: "YouTube Gap Analysis" },
-  { label: "BusinessZip", href: "/businesszip", icon: BriefcaseBusiness, desc: "Business Utilities" },
+  { label: "Lead Auto", href: "https://lead-auto.vercel.app/", icon: Bot, desc: "Automated Lead Gen" },
 ];
 
 const mainLinks = [

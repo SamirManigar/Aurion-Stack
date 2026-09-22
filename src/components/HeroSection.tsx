@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Star, Bot, Video, BriefcaseBusiness } from "lucide-react";
+import { Star, Bot, QrCode } from "lucide-react";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
 import { useReviews } from "@/context/ReviewsContext";
 
@@ -58,10 +58,9 @@ const AnimatedMetricItem = ({
 };
 
 const ecosystem = [
-  { icon: Bot, name: "AuraIQ", color: "hsl(221 83% 53%)", href: "/auraiq" },
+  { icon: QrCode, name: "RevQR", color: "hsl(210 50% 50%)", href: "https://revqr.tech" },
   { icon: GapTuberIcon, name: "GapTuber", color: "hsl(154 84% 40%)", href: "/gaptuber" },
-  { icon: Video, name: "VisioScript", color: "hsl(270 70% 60%)", href: "/visioscript" },
-  { icon: BriefcaseBusiness, name: "BusinessZip", color: "hsl(150 60% 45%)", href: "/businesszip" },
+  { icon: Bot, name: "Lead Auto", color: "hsl(270 70% 60%)", href: "https://lead-auto.vercel.app/" },
 ];
 
 const HeroSection = () => {

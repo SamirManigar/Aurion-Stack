@@ -2,19 +2,19 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Bot, Video, BriefcaseBusiness, ArrowUpRight } from "lucide-react";
+import { Bot, QrCode, ArrowUpRight } from "lucide-react";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
 
 const products = [
   {
-    icon: Bot,
-    name: "AuraIQ",
-    tagline: "Automates your customer support. 24/7.",
-    description: "A custom AI agent trained on your SOPs and FAQs. It qualifies leads, handles queries, and routes urgent issues — without a support team on the payroll.",
-    href: "/auraiq",
-    badge: "AI Agent",
-    color: "hsl(221 83% 53%)",
-    stat: "1,000+ queries handled daily",
+    icon: QrCode,
+    name: "RevQR",
+    tagline: "Boost your reviews with a single scan.",
+    description: "A smart QR code system that directs happy customers to leave reviews and captures negative feedback before it goes public.",
+    href: "https://revqr.tech",
+    badge: "Growth Tool",
+    color: "hsl(210 50% 50%)",
+    stat: "Capture 10x more reviews",
   },
   {
     icon: GapTuberIcon,
@@ -27,24 +27,14 @@ const products = [
     stat: "50+ gap reports per month",
   },
   {
-    icon: Video,
-    name: "VisioScript",
-    tagline: "Replaces a video production team.",
-    description: "Script → AI voiceover → auto-captions → export. A full video production pipeline in your browser. What used to take days takes 20 minutes.",
-    href: "/visioscript",
-    badge: "Video AI",
+    icon: Bot,
+    name: "Lead Auto",
+    tagline: "Automated lead generation and follow-ups.",
+    description: "Streamline your sales pipeline with automated lead capture, qualification, and multi-channel follow-ups.",
+    href: "https://lead-auto.vercel.app/",
+    badge: "Sales AI",
     color: "hsl(270 70% 60%)",
-    stat: "4K export, 20+ languages",
-  },
-  {
-    icon: BriefcaseBusiness,
-    name: "BusinessZip",
-    tagline: "Eliminates admin from your week.",
-    description: "Invoices auto-generated. Contracts sent in two clicks. Expenses categorised automatically. The paperwork tasks that eat your Sundays, done.",
-    href: "/businesszip",
-    badge: "Ops AI",
-    color: "hsl(150 60% 45%)",
-    stat: "Free plan available",
+    stat: "Increase conversion rates",
   },
 ];
 
