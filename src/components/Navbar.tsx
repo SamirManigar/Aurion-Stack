@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Rocket, Bot, QrCode } from "lucide-react";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
+import RevQRIcon from "@/components/icons/RevQRIcon";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import {
@@ -15,9 +16,9 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const products = [
-  { label: "RevQR", href: "https://revqr.tech", icon: QrCode, desc: "Smart QR Reviews" },
+  { label: "RevQR", href: "/revqr", icon: RevQRIcon, desc: "Smart QR Reviews" },
   { label: "GapTuber", href: "/gaptuber", icon: GapTuberIcon, desc: "YouTube Gap Analysis" },
-  { label: "Lead Auto", href: "https://lead-auto.vercel.app/", icon: Bot, desc: "Automated Lead Gen" },
+  { label: "Lead Auto", href: "/lead-auto", icon: Bot, desc: "Automated Lead Gen" },
 ];
 
 const mainLinks = [

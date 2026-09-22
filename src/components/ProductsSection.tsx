@@ -4,14 +4,15 @@ import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Bot, QrCode, ArrowUpRight } from "lucide-react";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
+import RevQRIcon from "@/components/icons/RevQRIcon";
 
 const products = [
   {
-    icon: QrCode,
+    icon: RevQRIcon,
     name: "RevQR",
     tagline: "Boost your reviews with a single scan.",
     description: "A smart QR code system that directs happy customers to leave reviews and captures negative feedback before it goes public.",
-    href: "https://revqr.tech",
+    href: "/revqr",
     badge: "Growth Tool",
     color: "hsl(210 50% 50%)",
     stat: "Capture 10x more reviews",
@@ -31,7 +32,7 @@ const products = [
     name: "Lead Auto",
     tagline: "Automated lead generation and follow-ups.",
     description: "Streamline your sales pipeline with automated lead capture, qualification, and multi-channel follow-ups.",
-    href: "https://lead-auto.vercel.app/",
+    href: "/lead-auto",
     badge: "Sales AI",
     color: "hsl(270 70% 60%)",
     stat: "Increase conversion rates",
