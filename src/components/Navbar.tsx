@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Rocket, Bot, QrCode } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, Bot, QrCode, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import GapTuberIcon from "@/components/icons/GapTuberIcon";
 import RevQRIcon from "@/components/icons/RevQRIcon";
 import { useRouter } from "next/navigation";
@@ -25,6 +26,7 @@ const mainLinks = [
   { label: "Services", href: "/services", type: "page" },
   { label: "Pricing", href: "/pricing", type: "page" },
   { label: "Insights", href: "/insights", type: "page" },
+  { label: "Studio", href: "/creators", type: "page" },
 ];
 
 const Navbar = () => {
@@ -32,6 +34,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [scrollPct, setScrollPct] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [studioTransition, setStudioTransition] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === "/";
@@ -82,8 +85,42 @@ const Navbar = () => {
     }, 150);
   };
 
+  const openStudio = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (studioTransition) return;
+    setMobileOpen(false);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      router.push("/creators");
+      return;
+    }
+    setStudioTransition(true);
+    window.setTimeout(() => router.push("/creators"), 620);
+  };
+
   return (
     <>
+      <AnimatePresence>
+        {studioTransition && (
+          <motion.div
+            key="studio-transition"
+            role="status"
+            aria-label="Opening Creator Studio"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#fafaf7] text-[#172339]"
+            initial={{ clipPath: "circle(0% at 82% 5%)" }}
+            animate={{ clipPath: "circle(150% at 82% 5%)" }}
+            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.35 }} className="flex flex-col items-center gap-4 text-center">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#c7d4e9] bg-white shadow-sm">
+                <img src="/aurionstack-logo.webp" alt="" width={42} height={42} className="h-10 w-10 rounded-full" />
+              </span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#62718a]">Aurion Stack presents</span>
+              <span className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">Creator Studio<span className="text-[#2563eb]">.</span></span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <a
         href="#hero"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-primary-foreground"
@@ -111,7 +148,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 lg:flex xl:gap-8">
             {/* Products Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="group flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground outline-none">
@@ -162,6 +199,15 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
+              ) : link.href === "/creators" ? (
+                <Link
+                  key={link.label}
+                  href="/creators"
+                  onClick={openStudio}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-primary/35 bg-primary/10 px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/70 hover:bg-primary/20"
+                >
+                  Studio <ArrowUpRight size={14} aria-hidden="true" />
+                </Link>
               ) : (
                 <a
                   key={link.label}
@@ -191,11 +237,15 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Toggle & Sheet */}
+          {/* Direct mobile Studio link and menu */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link href="/creators" onClick={openStudio} className="inline-flex items-center gap-1 rounded-md border border-primary/40 bg-primary/10 px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-primary/20 sm:text-sm">
+              Studio <ArrowUpRight size={14} aria-hidden="true" />
+            </Link>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
               <button
-                className="text-foreground md:hidden p-1"
+                className="text-foreground p-1"
                 aria-label="Open menu"
               >
                 <Menu size={24} />
@@ -252,6 +302,10 @@ const Navbar = () => {
                     >
                       {link.label}
                     </button>
+                  ) : link.href === "/creators" ? (
+                    <Link key={link.label} href="/creators" onClick={openStudio} className="border-b border-border/40 py-4 text-sm font-semibold text-primary">
+                      Studio
+                    </Link>
                   ) : (
                     <a
                       key={link.label}
@@ -278,6 +332,7 @@ const Navbar = () => {
               </div>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </nav>
     </>
