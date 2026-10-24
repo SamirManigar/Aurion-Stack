@@ -106,17 +106,17 @@ const Navbar = () => {
             key="studio-transition"
             role="status"
             aria-label="Opening Creative Studio"
-            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#111110] text-[#f5f4f0]"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#faf4ee] text-[#1e1a17]"
             initial={{ clipPath: "circle(0% at 82% 5%)" }}
             animate={{ clipPath: "circle(150% at 82% 5%)" }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           >
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.35 }} className="flex flex-col items-center gap-4 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#2d2a26] bg-[#000] shadow-2xl p-2.5">
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#eadbcf] bg-[#000000] shadow-xl p-2.5">
                 <img src="/studio-logo.png" alt="Aurion Stack Studio Logo" width={52} height={52} className="h-full w-full object-contain" />
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#a39e93]">Aurion Stack presents</span>
-              <span className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl text-[#f5f4f0]">Creative Studio<span className="text-[#d4a373]">.</span></span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#70655b]">Aurion Stack presents</span>
+              <span className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl text-[#1e1a17]">Creative Studio<span className="text-[#d96b43]">.</span></span>
             </motion.div>
           </motion.div>
         )}

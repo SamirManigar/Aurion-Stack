@@ -3,8 +3,17 @@
 import { useRef, useState, type SyntheticEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDown, ArrowLeft, ArrowUpRight, Play, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowUpRight, Play, Sparkles, Mail } from "lucide-react";
 import styles from "./studio.module.css";
+
+const WHATSAPP_URL = "https://wa.me/919272161837?text=Hi%20Aurion%20Stack%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20creative%20project";
+const EMAIL_URL = "mailto:aurionstack@gmail.com?subject=Creative%20Project%20Enquiry%20%E2%80%94%20Aurion%20Stack%20Studio";
+
+const WhatsappIcon = ({ size = 18 }: { size?: number }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+  </svg>
+);
 
 const categories = ["All work", "Creator edits", "Motion design", "Documentary"] as const;
 type Category = (typeof categories)[number];
@@ -198,9 +207,15 @@ export default function StudioClient() {
             </Link>
           </nav>
 
-          <Link href="/#contact" className={styles.navButton}>
-            Let’s create <ArrowUpRight size={15} />
-          </Link>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.navButton}
+            aria-label="Direct WhatsApp message to discuss a creative project"
+          >
+            <WhatsappIcon size={16} /> Let’s create <ArrowUpRight size={14} />
+          </a>
         </div>
       </header>
 
@@ -236,9 +251,14 @@ export default function StudioClient() {
               <a className={styles.primaryButton} href="#work">
                 Explore the work <ArrowDown size={17} />
               </a>
-              <Link href="/#contact" className={styles.textLink}>
-                Have an idea? <ArrowUpRight size={16} />
-              </Link>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.textLink}
+              >
+                Have an idea? Chat with us <ArrowUpRight size={16} />
+              </a>
             </div>
 
             <div className={styles.creatorSignature}>
@@ -380,15 +400,20 @@ export default function StudioClient() {
               <span>Motion design</span>
               <span>Visual storytelling</span>
             </div>
-            <Link href="/#contact" className={styles.textLink}>
-              Talk about a creative project <ArrowUpRight size={17} />
-            </Link>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.textLink}
+            >
+              Talk on WhatsApp directly <ArrowUpRight size={17} />
+            </a>
           </div>
         </section>
 
         {/* ── Collaborate CTA ── */}
         <section id="collaborate" className={styles.contact} aria-labelledby="contact-title">
-          <Sparkles size={25} className={styles.contactSpark} aria-hidden="true" />
+          <Sparkles size={26} className={styles.contactSpark} aria-hidden="true" />
           <div className={styles.eyebrow}>YOUR IDEA. THE NEXT GREAT FRAME.</div>
           <h2 id="contact-title">
             Let’s make something
@@ -396,13 +421,35 @@ export default function StudioClient() {
             <em>worth watching.</em>
           </h2>
           <p>
-            Have a story, a brief, or the beginning of an idea?
-            <br />
-            Bring it to Aurion Stack. Let’s talk.
+            Have a story, a brief, or the beginning of an idea? Reach out directly
+            via WhatsApp or email — we reply within a few hours.
           </p>
-          <Link href="/#contact" className={styles.primaryButton}>
-            Discuss a project <ArrowUpRight size={19} />
-          </Link>
+
+          <div className={styles.contactChannels}>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.whatsappButton}
+            >
+              <span className={styles.whatsappIconWrap}>
+                <WhatsappIcon size={20} />
+              </span>
+              <span>WhatsApp · 9272161837</span>
+              <ArrowUpRight size={16} />
+            </a>
+
+            <a href={EMAIL_URL} className={styles.emailButton}>
+              <Mail size={18} />
+              <span>aurionstack@gmail.com</span>
+              <ArrowUpRight size={15} />
+            </a>
+          </div>
+
+          <div className={styles.directBadge}>
+            <Sparkles size={13} />
+            <span>Direct founder & creative contact · Instant response</span>
+          </div>
         </section>
 
         {/* ── Footer ── */}
