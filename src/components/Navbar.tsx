@@ -26,7 +26,7 @@ const mainLinks = [
   { label: "Services", href: "/services", type: "page" },
   { label: "Pricing", href: "/pricing", type: "page" },
   { label: "Insights", href: "/insights", type: "page" },
-  { label: "Studio", href: "/creators", type: "page" },
+  { label: "Studio", href: "/studio", type: "page" },
 ];
 
 const Navbar = () => {
@@ -91,11 +91,11 @@ const Navbar = () => {
     if (studioTransition) return;
     setMobileOpen(false);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      router.push("/creators");
+      router.push("/studio");
       return;
     }
     setStudioTransition(true);
-    window.setTimeout(() => router.push("/creators"), 620);
+    window.setTimeout(() => router.push("/studio"), 620);
   };
 
   return (
@@ -105,18 +105,18 @@ const Navbar = () => {
           <motion.div
             key="studio-transition"
             role="status"
-            aria-label="Opening Creator Studio"
-            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#fafaf7] text-[#172339]"
+            aria-label="Opening Creative Studio"
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#111110] text-[#f5f4f0]"
             initial={{ clipPath: "circle(0% at 82% 5%)" }}
             animate={{ clipPath: "circle(150% at 82% 5%)" }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           >
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.35 }} className="flex flex-col items-center gap-4 text-center">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#c7d4e9] bg-white shadow-sm">
-                <img src="/aurionstack-logo.webp" alt="" width={42} height={42} className="h-10 w-10 rounded-full" />
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[#2d2a26] bg-[#000] shadow-2xl p-2.5">
+                <img src="/studio-logo.png" alt="Aurion Stack Studio Logo" width={52} height={52} className="h-full w-full object-contain" />
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#62718a]">Aurion Stack presents</span>
-              <span className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">Creator Studio<span className="text-[#2563eb]">.</span></span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#a39e93]">Aurion Stack presents</span>
+              <span className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl text-[#f5f4f0]">Creative Studio<span className="text-[#d4a373]">.</span></span>
             </motion.div>
           </motion.div>
         )}
@@ -199,10 +199,10 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
-              ) : link.href === "/creators" ? (
+              ) : (link.href === "/studio" || link.href === "/creators") ? (
                 <Link
                   key={link.label}
-                  href="/creators"
+                  href="/studio"
                   onClick={openStudio}
                   className="inline-flex items-center gap-1.5 rounded-md border border-primary/35 bg-primary/10 px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/70 hover:bg-primary/20"
                 >
@@ -239,7 +239,7 @@ const Navbar = () => {
 
           {/* Direct mobile Studio link and menu */}
           <div className="flex items-center gap-2 lg:hidden">
-            <Link href="/creators" onClick={openStudio} className="inline-flex items-center gap-1 rounded-md border border-primary/40 bg-primary/10 px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-primary/20 sm:text-sm">
+            <Link href="/studio" onClick={openStudio} className="inline-flex items-center gap-1 rounded-md border border-primary/40 bg-primary/10 px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-primary/20 sm:text-sm">
               Studio <ArrowUpRight size={14} aria-hidden="true" />
             </Link>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -302,8 +302,8 @@ const Navbar = () => {
                     >
                       {link.label}
                     </button>
-                  ) : link.href === "/creators" ? (
-                    <Link key={link.label} href="/creators" onClick={openStudio} className="border-b border-border/40 py-4 text-sm font-semibold text-primary">
+                  ) : (link.href === "/studio" || link.href === "/creators") ? (
+                    <Link key={link.label} href="/studio" onClick={openStudio} className="border-b border-border/40 py-4 text-sm font-semibold text-primary">
                       Studio
                     </Link>
                   ) : (

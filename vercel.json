@@ -5,6 +5,11 @@
       "has": [{ "type": "host", "value": "aurionstack.dev" }],
       "destination": "https://www.aurionstack.dev/$1",
       "permanent": true
+    },
+    {
+      "source": "/creators",
+      "destination": "/studio",
+      "permanent": true
     }
   ],
   "crons": [

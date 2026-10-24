@@ -34,6 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/gaptuber`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/visioscript`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/businesszip`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/studio`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/revqr`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/lead-auto`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${base}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];
