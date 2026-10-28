@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">1. Who We Are</h2>
-            <p>Aurion Stack ("we", "our", "us") is an AI and SaaS development agency operating globally. Our website is <a href="https://www.aurionstack.dev" className="text-primary underline">https://www.aurionstack.dev</a>. You can contact us at <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
+            <p>Aurion Stack ("we", "our", "us") is an AI and SaaS development agency operating globally. Our website is <a href="https://www.aurionstack.dev" className="text-primary underline">https://www.aurionstack.dev</a>. You can contact us at <a href="mailto:contact@aurionstack.dev" className="text-primary underline">contact@aurionstack.dev</a>.</p>
           </section>
 
           <section>
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">6. Your Rights</h2>
-            <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, email us at <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
+            <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, email us at <a href="mailto:contact@aurionstack.dev" className="text-primary underline">contact@aurionstack.dev</a>.</p>
           </section>
 
           <section>
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">9. Contact</h2>
-            <p>Questions about this policy? Email <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
+            <p>Questions about this policy? Email <a href="mailto:contact@aurionstack.dev" className="text-primary underline">contact@aurionstack.dev</a>.</p>
           </section>
         </div>
       </main>

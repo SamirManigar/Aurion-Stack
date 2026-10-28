@@ -81,7 +81,7 @@ export default function SolutionsDirectory() {
         <div className="container mx-auto flex items-center justify-between max-w-5xl">
           <Link href="/" className="text-sm font-bold tracking-tight text-foreground">Aurion Stack</Link>
           <a
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="rounded-md bg-foreground px-5 py-2 text-xs font-semibold text-background hover:bg-foreground/90 transition-all"
           >
             Book a Call
@@ -149,7 +149,7 @@ export default function SolutionsDirectory() {
           We build custom AI systems for problems not listed here. Book a 30-min call and we'll scope it for you — free.
         </p>
         <a
-          href="mailto:aurionstack@gmail.com"
+          href="mailto:contact@aurionstack.dev"
           className="inline-flex items-center gap-2 rounded-md bg-foreground px-8 py-4 text-sm font-semibold text-background hover:bg-foreground/90 hover:scale-[1.02] transition-all shadow-md"
         >
           Book a Free Discovery Call

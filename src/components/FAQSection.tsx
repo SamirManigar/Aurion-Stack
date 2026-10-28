@@ -110,7 +110,7 @@ const FAQSection = () => {
           </a>{" "}
           or{" "}
           <a
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="font-semibold text-primary underline-offset-4 hover:underline"
           >
             drop us an email

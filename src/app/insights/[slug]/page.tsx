@@ -319,7 +319,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   Apply these ideas to your product.
                 </p>
                 <Link
-                  href="mailto:aurionstack@gmail.com"
+                  href="mailto:contact@aurionstack.dev"
                   className="block w-full rounded-lg bg-foreground py-2 text-xs font-semibold text-background hover:bg-foreground/90 transition-colors"
                 >
                   Book a Free Call
@@ -342,7 +342,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </Link>
 
           <Link
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/8 px-6 py-2.5 text-sm font-semibold text-primary hover:bg-primary/15 transition-colors"
           >
             <Sparkles size={14} />

@@ -53,7 +53,7 @@ export const organizationSchema = {
     {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "aurionstack@gmail.com",
+      email: "contact@aurionstack.dev",
       availableLanguage: ["English"],
     },
   ],

@@ -19,7 +19,7 @@ const WhatsappIcon = () => (
 
 const quickLinks = [
   { href: "https://wa.me/919322974288", label: "WhatsApp", Icon: WhatsappIcon, external: true },
-  { href: "mailto:aurionstack@gmail.com", label: "aurionstack@gmail.com", Icon: Mail, external: false },
+  { href: "mailto:contact@aurionstack.dev", label: "contact@aurionstack.dev", Icon: Mail, external: false },
   { href: "https://discord.com/users/1222025472142217257", label: "Discord", Icon: MessageCircle, external: true },
   { href: "https://instagram.com/aurionstack", label: "@aurionstack", Icon: InstagramIcon, external: true },
 ];

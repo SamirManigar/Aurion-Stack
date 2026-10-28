@@ -325,7 +325,7 @@ export default async function SeoSolutionPage({ params }: Params) {
             Aurion Stack
           </Link>
           <a
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="rounded-md bg-foreground px-5 py-2 text-xs font-semibold text-background transition-all hover:bg-foreground/90"
           >
             {data.cta}
@@ -366,7 +366,7 @@ export default async function SeoSolutionPage({ params }: Params) {
 
           {/* Primary CTA */}
           <a
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background font-semibold rounded-md hover:bg-foreground/90 hover:scale-[1.02] transition-all shadow-lg text-sm"
           >
             {data.cta}
@@ -421,7 +421,7 @@ export default async function SeoSolutionPage({ params }: Params) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:aurionstack@gmail.com"
+              href="mailto:contact@aurionstack.dev"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-8 py-4 text-sm font-semibold text-background transition-all hover:bg-foreground/90 hover:scale-[1.02] shadow-md"
             >
               {data.cta}

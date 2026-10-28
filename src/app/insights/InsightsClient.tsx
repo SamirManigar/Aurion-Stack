@@ -112,7 +112,7 @@ const InsightsPage = ({ dynamicPosts = [] }: { dynamicPosts?: BlogPost[] }) => {
             </span>
           </div>
           <Link
-            href="mailto:aurionstack@gmail.com"
+            href="mailto:contact@aurionstack.dev"
             className="rounded-md bg-primary/10 border border-primary/20 px-4 py-1.5 text-xs font-semibold text-primary hover:bg-primary/20 transition-colors"
           >
             Work With Us
@@ -320,7 +320,7 @@ const InsightsPage = ({ dynamicPosts = [] }: { dynamicPosts?: BlogPost[] }) => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
-                href="mailto:aurionstack@gmail.com"
+                href="mailto:contact@aurionstack.dev"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-foreground px-8 py-3.5 text-sm font-semibold text-background shadow-lg hover:bg-foreground/90 hover:scale-[1.02] transition-all"
               >
                 Start a Project

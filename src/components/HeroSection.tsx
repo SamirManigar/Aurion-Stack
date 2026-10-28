@@ -47,7 +47,7 @@ const AnimatedMetricItem = ({
           ref={nodeRef}
           className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl tabular-nums"
         >
-          0{suffix}
+          {target.toFixed(decimals)}{suffix}
         </span>
         {showStars && <Star className="w-[18px] h-[18px] ml-1 mb-1 text-foreground fill-foreground" />}
       </div>
@@ -173,15 +173,15 @@ const HeroSection = () => {
 
               {/* 3-metric row */}
               <div className="grid grid-cols-3 divide-x divide-white/10 bg-black/40">
-                <AnimatedMetricItem label="Years Active" target={2} suffix="+" />
-                <AnimatedMetricItem label="Apps Shipped" target={24} suffix="+" />
+                <AnimatedMetricItem label="Years Active" target={3} suffix="+" />
+                <AnimatedMetricItem label="Apps Shipped" target={20} suffix="+" />
                 <AnimatedMetricItem
                   label="Client Rating"
-                  target={avgRating}
+                  target={avgRating > 0 ? avgRating : 4.9}
                   suffix=""
                   decimals={1}
                   showStars
-                  avgRating={avgRating}
+                  avgRating={avgRating > 0 ? avgRating : 4.9}
                 />
               </div>
             </div>

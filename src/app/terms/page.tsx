@@ -81,7 +81,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">9. Contact</h2>
-            <p>Questions about these terms? Email <a href="mailto:aurionstack@gmail.com" className="text-primary underline">aurionstack@gmail.com</a>.</p>
+            <p>Questions about these terms? Email <a href="mailto:contact@aurionstack.dev" className="text-primary underline">contact@aurionstack.dev</a>.</p>
           </section>
         </div>
       </main>

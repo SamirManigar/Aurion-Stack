@@ -602,7 +602,7 @@ const PricingDashboard = () => {
               ))}
             </ul>
             <a
-              href="mailto:aurionstack@gmail.com"
+              href="mailto:contact@aurionstack.dev"
               id="pricing-enterprise-contact"
               className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
@@ -795,7 +795,7 @@ const PricingDashboard = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 id="pricing-cta-email"
-                href="mailto:aurionstack@gmail.com"
+                href="mailto:contact@aurionstack.dev"
                 className="flex items-center justify-center gap-2 rounded-md bg-foreground px-8 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90 shadow-md"
               >
                 <Mail size={16} />

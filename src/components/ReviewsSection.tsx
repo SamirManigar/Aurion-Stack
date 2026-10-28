@@ -1,54 +1,69 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
-import { useReviews } from "@/context/ReviewsContext";
+import { Star, ShieldCheck, CheckCircle2, ArrowRight, ExternalLink } from "lucide-react";
+import { useReviews, Review } from "@/context/ReviewsContext";
 
-const StarRating = ({
-  rating,
-  onRate,
-}: {
-  rating: number;
-  onRate?: (r: number) => void;
-}) => (
-  <div className="flex gap-1">
+const StarRating = ({ rating }: { rating: number }) => (
+  <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
         key={i}
-        size={18}
-        className={`${
-          i < rating ? "fill-primary text-primary" : "fill-transparent text-primary/30"
-        } ${onRate ? "cursor-pointer transition-transform hover:scale-125" : ""}`}
-        onClick={() => onRate && onRate(i + 1)}
+        size={16}
+        className={i < rating ? "fill-primary text-primary" : "fill-transparent text-primary/30"}
       />
     ))}
   </div>
 );
 
-const ReviewCard = ({ review }: { review: { text: string; author: string; rating: number } }) => (
-  <div className="flex-shrink-0 w-72 rounded-xl border border-border bg-card p-6 mx-3 sm:w-80 shadow-sm">
-    <StarRating rating={review.rating} />
-    <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic sm:text-base">
-      "{review.text}"
-    </p>
-    <p className="mt-4 text-sm font-bold tracking-tight text-foreground">— {review.author}</p>
+const ReviewCard = ({ review }: { review: Review }) => (
+  <div className="flex-shrink-0 w-80 sm:w-96 rounded-xl border border-border bg-card/90 backdrop-blur-sm p-6 mx-3 shadow-sm hover:border-primary/40 transition-colors flex flex-col justify-between">
+    <div>
+      <div className="flex items-center justify-between gap-2 mb-3">
+        <StarRating rating={review.rating} />
+        {review.projectTag && (
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+            {review.projectTag}
+          </span>
+        )}
+      </div>
+      <p className="text-sm leading-relaxed text-muted-foreground italic sm:text-[15px]">
+        "{review.text}"
+      </p>
+    </div>
+
+    <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between">
+      <div>
+        <p className="text-sm font-bold tracking-tight text-foreground">{review.author}</p>
+        <p className="text-xs text-muted-foreground">
+          {review.role}, <span className="text-foreground/90 font-medium">{review.company}</span>
+        </p>
+      </div>
+      {review.projectUrl && (
+        <a
+          href={review.projectUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-primary hover:underline flex items-center gap-1 font-medium"
+          aria-label={`View ${review.company} project`}
+        >
+          <span>Live Build</span>
+          <ExternalLink size={12} />
+        </a>
+      )}
+    </div>
   </div>
 );
 
 const ReviewsSection = () => {
-  const { reviews, addReview } = useReviews();
-  const [newText, setNewText] = useState("");
-  const [newAuthor, setNewAuthor] = useState("");
-  const [newRating, setNewRating] = useState(5);
-  const [submitted, setSubmitted] = useState(false);
+  const { reviews } = useReviews();
 
   const trackRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<number>(0);
   const posRef = useRef<number>(0);
 
   const doubled = [...reviews, ...reviews];
-
   const isPaused = useRef<boolean>(false);
 
   useEffect(() => {
@@ -72,25 +87,18 @@ const ReviewsSection = () => {
     return () => cancelAnimationFrame(animRef.current);
   }, [reviews]);
 
-  const handleSubmit = () => {
-    if (!newText.trim() || !newAuthor.trim()) return;
-    addReview({ text: newText.trim(), author: newAuthor.trim(), rating: newRating });
-    setNewText("");
-    setNewAuthor("");
-    setNewRating(5);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
-
   return (
     <section id="reviews" className="relative border-t border-border bg-background py-24 sm:py-32 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+            Client Proof
+          </span>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Client <span className="text-muted-foreground">Feedback</span>
+            Client <span className="text-muted-foreground">Endorsements</span>
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            What our clients globally say about working with Aurion Stack
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg max-w-2xl mx-auto">
+            Direct feedback from founders and operators who trusted Aurion Stack to engineer, scale, and automate their platforms.
           </p>
         </div>
       </div>
@@ -115,61 +123,56 @@ const ReviewsSection = () => {
         </div>
       </div>
 
-      {/* Leave a Review form */}
+      {/* Trust & Guarantee Banner */}
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-xl rounded-2xl border border-border bg-muted/20 p-6 sm:p-10 text-center shadow-sm"
+          className="mx-auto max-w-4xl rounded-2xl border border-border bg-muted/20 p-8 sm:p-10 shadow-sm"
         >
-          <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl mb-2">
-            Leave a Review
-          </h3>
-          <p className="text-sm text-muted-foreground mb-8">
-            Rate our work — it'll securely appear in our pipeline.
-          </p>
-
-          <div className="space-y-4 text-left">
-            <input
-              type="text"
-              value={newAuthor}
-              onChange={(e) => setNewAuthor(e.target.value)}
-              placeholder="Your name or company..."
-              className="w-full rounded-md border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-sm"
-            />
-
-            <div className="flex items-center gap-3 px-1 py-2">
-              <span className="text-sm font-semibold text-foreground">Rating:</span>
-              <StarRating rating={newRating} onRate={setNewRating} />
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="text"
-                value={newText}
-                onChange={(e) => setNewText(e.target.value)}
-                placeholder="Share your experience..."
-                className="flex-1 min-w-0 rounded-md border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-sm"
-                onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-              />
-              <button
-                onClick={handleSubmit}
-                className="w-full sm:w-auto flex-shrink-0 rounded-md bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-all hover:bg-foreground/90 shadow-sm"
-              >
-                Submit Review
-              </button>
-            </div>
-
-            {submitted && (
-              <p
-                className="text-center text-sm font-semibold text-primary animate-fade-in mt-4"
-                role="status"
-                aria-live="polite"
-              >
-                ✓ Your review has been submitted for approval.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <ShieldCheck size={14} />
+                <span>Verified Production Deployments</span>
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Ready to ship your product with senior engineers?
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+                Every project comes with 100% IP ownership, founder-led architecture reviews, and a 14-day post-launch bug warranty.
               </p>
-            )}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-1.5 text-foreground">
+                  <CheckCircle2 size={14} className="text-primary" /> 100% Code & Asset Ownership
+                </span>
+                <span className="flex items-center gap-1.5 text-foreground">
+                  <CheckCircle2 size={14} className="text-primary" /> Production SLA Guarantee
+                </span>
+                <span className="flex items-center gap-1.5 text-foreground">
+                  <CheckCircle2 size={14} className="text-primary" /> Direct Senior Slack/WhatsApp
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row md:flex-col gap-3 w-full md:w-auto shrink-0">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-all hover:bg-foreground/90 shadow-sm text-center"
+              >
+                <span>Book a Discovery Call</span>
+                <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://wa.me/919322974288"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition-all hover:bg-muted text-center"
+              >
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

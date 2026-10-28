@@ -25,6 +25,6 @@ export const faqs = [
   },
   {
     q: "How do we get started?",
-    a: "The fastest way is to book a free strategic consultation via WhatsApp (+91 93227 20861) or email (aurionstack@gmail.com). We will map out your current operational bottlenecks and provide a fixed-rate, outcome-based engineering plan within 48 hours.",
+    a: "The fastest way is to book a free strategic consultation via WhatsApp (+91 93229 74288) or email (contact@aurionstack.dev). We will map out your current operational bottlenecks and provide a fixed-rate, outcome-based engineering plan within 48 hours.",
   },
 ];

@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     // });
     // await transporter.sendMail({
     //   from: `"Aurion Stack Contact" <${process.env.SMTP_USER}>`,
-    //   to: process.env.CONTACT_EMAIL || "aurionstack@gmail.com",
+    //   to: process.env.CONTACT_EMAIL || "contact@aurionstack.dev",
     //   subject: `New enquiry from ${name}`,
     //   text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     // });
@@ -36,6 +36,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, message: "Message received! We'll reply within 24 hours." });
   } catch (err) {
     console.error("Contact API error:", err);
-    return NextResponse.json({ error: "Something went wrong. Please email us directly at aurionstack@gmail.com" }, { status: 500 });
+    return NextResponse.json({ error: "Something went wrong. Please email us directly at contact@aurionstack.dev" }, { status: 500 });
   }
 }

@@ -281,7 +281,7 @@ const ServicesDetailSection = () => {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="mailto:aurionstack@gmail.com"
+              href="mailto:contact@aurionstack.dev"
               className="flex w-full sm:w-auto items-center justify-center rounded-md bg-foreground px-8 py-3.5 text-sm font-semibold text-background shadow-xl hover:bg-foreground/90 transition-colors"
             >
               Send an Email

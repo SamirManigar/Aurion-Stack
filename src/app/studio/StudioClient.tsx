@@ -7,7 +7,7 @@ import { ArrowDown, ArrowLeft, ArrowUpRight, Play, Sparkles, Mail } from "lucide
 import styles from "./studio.module.css";
 
 const WHATSAPP_URL = "https://wa.me/919272161837?text=Hi%20Aurion%20Stack%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20creative%20project";
-const EMAIL_URL = "mailto:aurionstack@gmail.com?subject=Creative%20Project%20Enquiry%20%E2%80%94%20Aurion%20Stack%20Studio";
+const EMAIL_URL = "mailto:contact@aurionstack.dev?subject=Creative%20Project%20Enquiry%20%E2%80%94%20Aurion%20Stack%20Studio";
 
 const WhatsappIcon = ({ size = 18 }: { size?: number }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} aria-hidden="true">
@@ -441,7 +441,7 @@ export default function StudioClient() {
 
             <a href={EMAIL_URL} className={styles.emailButton}>
               <Mail size={18} />
-              <span>aurionstack@gmail.com</span>
+              <span>contact@aurionstack.dev</span>
               <ArrowUpRight size={15} />
             </a>
           </div>
